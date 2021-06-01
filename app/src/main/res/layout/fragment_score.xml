@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.onix.internship.navigation.ui.score.ScoreViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scoreLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp"
+        tools:context=".ui.score.ScoreFragment">
+
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            setTextViewText="@{viewModel.model.score}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="1" />
+
+        <TextView
+            android:id="@+id/scoreTextViewButInt"
+            setTextViewText="@{viewModel.countCurrentFragment}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scoreTextView"
+            app:layout_constraintWidth_percent="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/scoreBtnPrevious"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:onClick="@{() -> viewModel.toPreviousFragment()}"
+            android:text="To previous"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scoreTextViewButInt"
+            app:layout_constraintWidth_percent=".5" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/scoreBtnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:onClick="@{() -> viewModel.toNextFragment()}"
+            android:text="To next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scoreTextViewButInt"
+            app:layout_constraintWidth_percent=".45" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/scoreBtnReDo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{() -> viewModel.toStart()}"
+            android:text="try again"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scoreBtnPrevious"
+            app:layout_constraintWidth_percent=".45" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
